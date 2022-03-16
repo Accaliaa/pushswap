@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 10:36:52 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/14 22:07:32 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 18:43:36 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 }	t_stack;
 
 void	swap(t_stack *a);
-void	push(t_stack *a, t_stack *b, int *count);
+void	push(t_stack *a, t_stack *b);
 void	reverse_rotate(t_stack *a);
 void	rotate(t_stack *a);
 // char	**ft_split(char const *s, char c);
@@ -33,4 +33,5 @@ void	rotate(t_stack *a);
 void	handle_three(t_stack *a);
 void	handle_short(t_stack *a, t_stack *b, int *count);
 int		ft_min(t_stack *a);
+void	shift_down(t_stack *a);
 #endif

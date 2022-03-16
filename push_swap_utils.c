@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:00:51 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/14 21:04:31 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 18:43:14 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,16 @@ int	ft_min(t_stack *a)
 		i++;
 	}
 	return(tmp);
+}
+
+void	shift_down(t_stack *a)
+{
+	int i;
+
+	i = a->stack_size;
+	while(i > 0)
+	{
+		a->stack[i] = a->stack[i - 1];
+		i--;
+	}
 }

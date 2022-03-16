@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 09:30:54 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/14 20:41:36 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 13:31:52 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ int check_dup(t_stack *a, int c, int i)
    int count;
    
     count = 0;
-    while (i >= 0)
+    while (i > 0)
     {
-        if (a->stack[i] == c)
-                count++;
+        if (a->stack[i - 1] == c)
+                {
+                   // ft_printf("stack : %i , index ; %i \n", a->stack[i - 1], i - 1);
+                    count++;
+                }
         i--;
     }
+    //ft_printf(" count :%i \n", count);
     return (count);
   
 }
@@ -90,7 +94,7 @@ void check(char **argv, int argc, t_stack *a)
 
     while(i < argc - 1)
     {
-        if(check_dup(a, ft_atoi(argv[i + 1]), i) > 1)
+        if(check_dup(a, ft_atoi(argv[i + 1]), i))
             {
                 ft_printf("Error"); 
                 exit(0);
@@ -99,7 +103,6 @@ void check(char **argv, int argc, t_stack *a)
             i++;
     }
 }
-
 
 int main(int argc, char **argv)
 {
@@ -114,31 +117,25 @@ int main(int argc, char **argv)
     {
     a->stack = (int *)malloc(sizeof(int) * (argc - 1));
     b->stack = (int *)malloc(sizeof(int) * (argc - 1));
-    // b->stack = NULL;
-    // a->stack = NULL;
     a->stack_size = argc - 1;
-    b->stack_size = argc - 1;
+    b->stack_size = 0;
     check(argv, argc, a);
-    // while (k < 5)
+     int i = 0;
+    // while(i < a->stack_size)
     // {
-    //     ft_printf("[%d]\n",a->stack[k]);
-    //     k++;
+    //     ft_printf("%i\n", a->stack[i]);
+    //     i++;
     // }
+  //  ft_printf("\n");
     handle_short(a , b, &count);
-    // handle_three(a);
     k = 0;
-    while (k < count)
-    {
-        ft_printf("{%d}\n",b->stack[k]);
-        k++;
-    }
-    int i = 0;
-    while(i < 3)
-    {
-        ft_printf("%i", a->stack[i]);
-        i++;
-    }
-    // ft_printf(" \n%i", count);
-    }
+    ft_printf("\n");
+     i = 0;
+    // while(i < a->stack_size)
+    // {
+    //     ft_printf(" \na : %i\n", a->stack[i]);
+    //     i++;
+    // }
+     }
     return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:56 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/15 01:25:03 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 13:32:06 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,36 @@ void	handle_three(t_stack *a)
 void	handle_short(t_stack *a, t_stack *b, int *count)
 {
 	int i;
-	
-	//i = ft_min(a);
+	//ft_printf("i is:%d\n", a->stack_size);
 	while(*count < a->stack_size - 3)
 	{
 		i = ft_min(a);
-		//ft_printf("min: %d\n", i);
-		push(a , b, count);
-		ft_printf("pb \n");
+		//ft_printf("%i", i);
+		
+		if(i > a->stack_size/2)
+		{
+			while(i < a->stack_size)
+			{
+				reverse_rotate(a);
+				i++;
+			}
+		}
+		else if(i <= a->stack_size/2 && i)
+		{
+			while(i > 0)
+			{
+				rotate(a);
+				i--;
+			}
+		}
+		push(a , b);
+		ft_printf("pb\n");
 	}
-	// handle_three(a);
+	handle_three(a);
+	while(b->stack_size > 0)
+	{
+		push(b, a);
+		ft_printf("pa\n");
+	}
+		
 }
