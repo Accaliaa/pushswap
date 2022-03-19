@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 09:30:54 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/16 13:31:52 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:35:57 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ int main(int argc, char **argv)
     t_stack *b;
     int k = 0;
     int count = 0;
-    
+    int *arr;
+
     a = (t_stack *)malloc(sizeof(t_stack));
     b = (t_stack *)malloc(sizeof(t_stack));
     if(argc > 1)
@@ -120,22 +121,29 @@ int main(int argc, char **argv)
     a->stack_size = argc - 1;
     b->stack_size = 0;
     check(argv, argc, a);
-     int i = 0;
+    //  int i = 0;
     // while(i < a->stack_size)
     // {
     //     ft_printf("%i\n", a->stack[i]);
     //     i++;
     // }
-  //  ft_printf("\n");
-    handle_short(a , b, &count);
-    k = 0;
-    ft_printf("\n");
-     i = 0;
+    init_data(a);
+    handle_long(a , b);
+  
+    // k = 0;
+    // ft_printf("\n");
+    //  i = 0; 
     // while(i < a->stack_size)
     // {
     //     ft_printf(" \na : %i\n", a->stack[i]);
     //     i++;
     // }
-     }
+    // i = 0;
+    // while(i < b->stack_size)
+    // {
+    //     ft_printf(" \nb : %i\n", b->stack[i]);
+    //     i++;
+    // }
+    }
     return(0);
 }

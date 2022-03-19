@@ -8,7 +8,7 @@ import subprocess
 WARNING = '\033[93m'
 ENDC = '\033[0m'
 OKBLUE = '\033[94m'
-perm = permutations([0, 32, 1, 2, 4])
+perm = permutations([0, 32, 1, 2, -4])
 string = ""
 output = ""
 badsort = 0

@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 10:36:52 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/15 18:43:36 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:32:01 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,36 @@
 # include "printf/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
+typedef struct s_data
+{
+	int *arr;
+	int middle;
+	int offset;
+	int start;
+	int end;
+	int init_size;
+} t_data;
 
 typedef struct s_stack
 {
 	int	*stack;
 	int	stack_size;
+	t_data data;
 }	t_stack;
+
 
 void	swap(t_stack *a);
 void	push(t_stack *a, t_stack *b);
 void	reverse_rotate(t_stack *a);
 void	rotate(t_stack *a);
-// char	**ft_split(char const *s, char c);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	handle_three(t_stack *a);
 void	handle_short(t_stack *a, t_stack *b, int *count);
 int		ft_min(t_stack *a);
 void	shift_down(t_stack *a);
+int		*sort_array(t_stack *a);
+void	check_place(int i, t_stack *a);
+void	handle_long(t_stack *a, t_stack *b);
+void	init_data(t_stack *a);
 #endif

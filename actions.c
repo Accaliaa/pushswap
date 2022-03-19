@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 09:27:52 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/16 13:32:12 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:37:01 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	push(t_stack *a, t_stack *b)
 	i = 0;
 	while(i < a->stack_size)
     {
-       // ft_printf(" \na : %i\n", a->stack[i]);
         i++;
     }
 }
@@ -59,7 +58,6 @@ void	reverse_rotate(t_stack *a)
 			i--;
 		}
 	a->stack[0] = temp;
-	ft_printf("rra\n");
 }
 
 void	rotate(t_stack *a)
@@ -75,6 +73,5 @@ void	rotate(t_stack *a)
 			i++;
 		}
 	a->stack[a->stack_size - 1] = temp;
-	ft_printf("ra \n");
 }
                                                                                                                                                             
