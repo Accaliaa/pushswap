@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 09:27:52 by zdasser           #+#    #+#             */
-/*   Updated: 2022/03/19 16:37:01 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/03/20 15:05:57 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ void	reverse_rotate(t_stack *a)
 	int temp;
 	
 	i = a->stack_size - 1;
+	if (i < 0)
+		return ;
 	temp = a->stack[a->stack_size - 1];
-	while (i >= 0)
-		{
-			a->stack[i + 1] = a->stack[i];
-			i--;
-		}
+	while (i > 0)
+	{
+		a->stack[i] = a->stack[i - 1];
+		i--;
+	}
 	a->stack[0] = temp;
 }
 
